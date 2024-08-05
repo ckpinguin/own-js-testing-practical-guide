@@ -3,7 +3,7 @@ import { generateReportData } from "./data"
 
 describe("generateReportData()", () => {
   it("should execute logFn if provided", () => {
-    const logger = vi.fn()
+    const logger = vi.fn(() => {})
 
     generateReportData(logger)
 
