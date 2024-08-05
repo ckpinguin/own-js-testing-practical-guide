@@ -1,17 +1,10 @@
 import { vi, it, expect } from "vitest"
 import writeData from "./io"
 import { promises as fs } from "fs"
+import path from "path"
 
-vi.mock("fs") // automock
-vi.mock("path", () => {
-  return {
-    default: {
-      join: (...args) => {
-        return args[args.length - 1]
-      },
-    },
-  }
-})
+vi.mock("fs")
+vi.mock("path")
 
 it("should execute the writeFile method", () => {
   const testData = "test"
