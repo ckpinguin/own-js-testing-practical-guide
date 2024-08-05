@@ -13,6 +13,17 @@ describe("HttpError", () => {
     expect(error.message).toBe(message)
     expect(error.data).toEqual(data)
   })
+
+  it("should contain undefined as data if no data is provided", () => {
+    const statusCode = 404
+    const message = "Not Found"
+
+    const error = new HttpError(statusCode, message)
+
+    expect(error.statusCode).toBe(statusCode)
+    expect(error.message).toBe(message)
+    expect(error.data).toBeUndefined()
+  })
 })
 
 describe("ValidationError", () => {
